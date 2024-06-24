@@ -5,6 +5,7 @@ Welcome to the PWA Starter Kit! This kit provides a solid foundation for buildin
 ## Features
 
 -   [x] Offline support with service workers.
+-   [x] Instantaneous updates.
 -   [x] Responsive design for various screen sizes.
 -   [x] Vanilla PWA - No 3rd party libraries needed.
 -   [x] iOS compatible.
