@@ -15,7 +15,7 @@ Welcome to the PWA Starter Kit! This kit provides a solid foundation for buildin
 
 To get started with the PWA Starter Kit, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/tsgsOFFICIAL/pwa-starter-kit.git`
+1. Clone the repository: `git clone https://github.com/tsgsOFFICIAL/PWA-Starter-Kit.git`
 2. Build you app!
 
 ## Contributing
@@ -25,4 +25,4 @@ Pull requests are also appreciated.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+This project is licensed under the GPL-3.0 License. See the [LICENSE](LICENSE) file for more details.
