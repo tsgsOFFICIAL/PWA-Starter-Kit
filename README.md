@@ -10,6 +10,7 @@ Welcome to the PWA Starter Kit! This kit provides a solid foundation for buildin
 -   [x] Vanilla PWA - No 3rd party libraries needed.
 -   [x] iOS compatible.
 -   [x] Android compatible.
+-   [x] Local notifications.
 -   [ ] Push notifications.
 
 ## Getting Started
