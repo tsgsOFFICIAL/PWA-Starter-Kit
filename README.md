@@ -2,6 +2,10 @@
 
 Welcome to the PWA Starter Kit! This kit provides a solid foundation for building Progressive Web Applications (PWAs), with modern web technologies.
 
+## Prerequisites
+
+-   You will need to download and install [FFmpeg](https://ffmpeg.org/download.html) in order to use the [asset-helper.cmd](../assets/asset-helper.cmd) script.
+
 ## Features
 
 -   [x] Offline support with service workers.
