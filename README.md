@@ -19,7 +19,7 @@ Welcome to the PWA Starter Kit! This kit provides a solid foundation for buildin
 
 1. Connect your Android device to your computer with a usb cable.
 2. Enable USB-Debugging on your Android device.
-3. Navigate to [chrome devices](chrome://inspect/#devices)
+3. Navigate to chrome://inspect/#devices
 4. Open the PWA on your Android device.
 5. Press "Inspect" in Chrome on your machine.
 
