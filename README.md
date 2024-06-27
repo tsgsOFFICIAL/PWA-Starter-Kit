@@ -4,7 +4,7 @@ Welcome to the PWA Starter Kit! This kit provides a solid foundation for buildin
 
 ## Prerequisites
 
--   You will need to download and install [FFmpeg](https://ffmpeg.org/download.html) in order to use the [asset-helper.cmd](../assets/asset-helper.cmd) script.
+-   You will need to download and install [FFmpeg](https://ffmpeg.org/download.html) in order to use the [asset-helper.cmd](../blob/main/assets/asset-helper.cmd) script.
 
 ## Features
 
