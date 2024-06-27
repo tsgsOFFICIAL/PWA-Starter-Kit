@@ -1,0 +1,436 @@
+/* Remove all margins and paddings & Remove blue highlight on mobile & Change the default font-family & color */
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    font-family: "WorkSans", sans-serif;
+}
+
+/* Set font-size to 62.5% so 0.1rem = 1 px */
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    background-color: var(--background-color);
+    color: var(--primary-text-color);
+}
+
+/* Stretch to fill the entire page */
+html,
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Display flex */
+body {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.4;
+    height: 100vh;
+}
+
+main {
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1.69rem;
+}
+
+/* Remove all link styling */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Remove style from lists */
+ul,
+ol {
+    list-style: none;
+}
+
+/* Utility Classes */
+/* Make anything unscrollable */
+.noscroll {
+    overflow: hidden;
+}
+
+/* Make anything unselectable */
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.overflow-dots {
+    max-width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.invalid {
+    color: var(--error-color);
+}
+
+.fw-100 {
+    font-weight: 100;
+}
+
+.fw-200 {
+    font-weight: 200;
+}
+
+.fw-300 {
+    font-weight: 300;
+}
+
+.fw-400 {
+    font-weight: 400;
+}
+
+.fw-500 {
+    font-weight: 500;
+}
+
+.fw-600 {
+    font-weight: 600;
+}
+
+.fw-700 {
+    font-weight: 700;
+}
+
+.fw-800 {
+    font-weight: 800;
+}
+
+.fw-900 {
+    font-weight: 900;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex.col {
+    flex-direction: column;
+    justify-content: center;
+}
+
+.flex.row {
+    flex-direction: row;
+    align-items: center;
+}
+
+.flex.wrap {
+    flex-wrap: wrap;
+}
+
+/* Image loading */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-position: center;
+    object-fit: cover;
+}
+
+.blur-load {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    background-position: center;
+    background-size: cover;
+    animation: pulse-load 1.5s infinite;
+}
+
+.blur-load.loaded {
+    animation: none;
+    background: none;
+}
+
+.blur-load>img {
+    opacity: 0;
+    transition: opacity .33s ease-in-out;
+}
+
+.blur-load.loaded>img {
+    opacity: 1;
+}
+
+/* Checkbox Slider */
+.checkbox-slider {
+    --height: 2rem;
+    position: relative;
+    display: inline-block;
+    width: calc(var(--height) * 2.5);
+    height: var(--height);
+}
+
+.checkbox-slider input {
+    opacity: 0;
+}
+
+.checkbox-slider label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 1.5rem;
+    background-color: var(--menu-color);
+    transition: background-color .2s ease-in-out;
+}
+
+.checkbox-slider label:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: .15rem;
+    z-index: 1;
+    display: inline-block;
+    width: var(--height);
+    height: var(--height);
+    border-radius: 1.5rem;
+    background-color: var(--secondary-color);
+    transition: left .2s ease-in-out;
+}
+
+.checkbox-slider input[type=checkbox]:checked~label {
+    background-color: var(--primary-color);
+}
+
+.checkbox-slider input[type=checkbox]:checked~label:after {
+    left: calc(var(--height) * 1.5);
+}
+
+/* PWA Prompt */
+#pwa-install-banner,
+#pwa-install-banner.hidden {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    #pwa-install-banner.visible {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 9999;
+        background: white;
+        padding: 15px;
+        box-shadow: 0px 0px 6px ghostwhite;
+        background-color: #191919;
+        animation: slideUp .69s ease;
+    }
+
+    #pwa-install-banner.animateOut {
+        animation: slideDown .69s ease;
+    }
+
+    #pwa-install-banner img {
+        width: 3.2rem;
+        aspect-ratio: 1/1;
+    }
+
+    #pwa-install-banner .content {
+        display: flex;
+        flex-flow: column nowrap;
+        font-size: 1.5rem;
+    }
+
+    /* Native look */
+    #pwa-install-banner>.call-to-action>button {
+        background: var(--primary-color);
+        color: ghostwhite;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: .69rem;
+        font-size: 1.5rem;
+    }
+}
+
+/* Toast/Notification */
+#toast {
+    --duration: 5000ms;
+    --backgroundSize: 100%;
+    --height: 5rem;
+    --bottom: 6.9rem;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    right: 0;
+    bottom: var(--bottom);
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    height: var(--height);
+    width: 90vw;
+    overflow: hidden;
+    margin: auto;
+    border-radius: .3rem;
+    font-size: 1.69rem;
+    background-color: var(--info-color);
+    background-image: linear-gradient(90deg, var(--secondary-color), var(--secondary-color));
+    background-size: var(--backgroundSize) .4rem;
+    background-repeat: no-repeat;
+    background-position: 0% 100%;
+    animation: toastExpand .69s ease-out, toastCollapse .69s var(--duration) ease-out;
+    transition: background-size var(--duration) linear;
+}
+
+#toast.info {
+    background-color: var(--info-color);
+}
+
+#toast.success {
+    background-color: var(--success-color);
+}
+
+#toast.error {
+    background-color: var(--error-color);
+}
+
+#toast.warning {
+    background-color: var(--warning-color);
+}
+
+#toast #img {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    width: var(--height);
+    height: var(--height);
+}
+
+#toast #img>img {
+    height: 60%;
+    filter: invert(100%);
+}
+
+#toast #desc {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    font-weight: bold;
+}
+
+/* Animations */
+@keyframes slideUp {
+    0% {
+        transform: translateY(100vh);
+        opacity: .69;
+    }
+
+    80% {
+        opacity: .69;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    80% {
+        opacity: .69;
+    }
+
+    100% {
+        transform: translateY(100%);
+        opacity: .69;
+    }
+}
+
+@keyframes toastExpand {
+    0% {
+        bottom: 0;
+        opacity: 0;
+        max-width: 5rem;
+    }
+
+    70% {
+        bottom: var(--bottom);
+        max-width: 5rem;
+    }
+
+    100% {
+        max-width: 90vw;
+        opacity: 1;
+    }
+}
+
+@keyframes toastCollapse {
+    0% {
+        bottom: var(--bottom);
+        max-width: 90vw;
+        opacity: 1;
+    }
+
+    70% {
+        bottom: var(--bottom);
+        max-width: 5rem;
+    }
+
+    100% {
+        bottom: 0;
+        opacity: 0;
+        max-width: 5rem;
+    }
+}
+
+@keyframes tiltShaking {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(1deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(-1deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}

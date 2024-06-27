@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <title>PWA Starter Kit</title>
+        <!-- Meta -->
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="robots" content="index, follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#007bff" />
+        <!-- Open Graph -->
+        <meta name="og:image" content="/assets/img/logo.png">
+        <!-- Links -->
+        <link rel="icon" href="/assets/img/logo.png">
+        <link rel="apple-touch-icon" href="/assets/img/logo.png">
+        <link rel="manifest" href="/manifest.json">
+        <link rel="stylesheet" href="/css/variables.css">
+        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/css/cookie.css">
+
+        <script type="text/javascript" src="/js/main.js" defer></script>
+        <script type="text/javascript" src="/js/img-loader.js" defer></script>
+        <script type="text/javascript" src="/js/cookie.js" defer></script>
+    </head>
+    <body id="home" ontouchstart>
+        <nav id="navbar" role="navigation" class="unselectable">
+            <a href="/#home" class="navbar-item" target="_self">
+                <img src="/assets/img/house_light.svg" alt="Home" title="Home" loading="lazy">
+            </a>
+            <a href="/shifts" class="navbar-item" target="_self">
+                <img src="/assets/img/calendar_light.svg" alt="Shifts" title="Shifts" loading="lazy">
+            </a>
+            <button type="button">
+                <a href="/shifts?add" target="_self">
+                    <img src="/assets/img/plus.svg" alt="Add Shift" title="Add Shift" loading="lazy">
+                </a>
+            </button>
+            <a href="/budget" class="navbar-item" target="_self">
+                <img src="/assets/img/sack-dollar_light.svg" alt="Budget" title="Budget" loading="lazy">
+            </a>
+            <a href="/settings" class="navbar-item" target="_self">
+                <img src="/assets/img/gear_light.svg" alt="Settings" title="Settings" loading="lazy">
+            </a>
+        </nav>
+
+        <header>
+            <h1 class="unselectable">@ViewData["Title"]</h1>
+        </header>
+
+        <!-- Cookie Banner -->
+        <article id="cookie-banner" class="cookie-item">
+            <!-- Cookie Header -->
+            <section class="cookie-item header">
+                <h2 class="cookie-item">
+                    <article class="blur-load cookie-item" style="background-image: url('/assets/img/logo-min.png')">
+                        <img class="cookie-item" src="/assets/img/logo.png" alt="Logo" title="Logo" loading="lazy">
+                    </article>
+
+                    Cookie Notice
+
+                    <article class="blur-load cookie-item" style="background-image: url('/assets/img/cookie-min.png')">
+                        <img class="cookie-item rotating" src="/assets/img/cookie.png" alt="Cookie" title="Cookie" loading="lazy">
+                    </article>
+                </h2>
+            </section>
+            <!-- Cookie content -->
+            <section class="cookie-item content">
+                <h3 class="cookie-item">Notice</h3>
+                <p class="cookie-item">I use cookies and, or similar technologies as specified in the <a href="/policies#cookie-policy" class="cookie-item underline" title="Learn more about cookies &amp; how I use them">cookie policy</a>.</p>
+                <p class="cookie-item">You can reject or accept the use of such technologies, by clicking the 'Reject' or 'Accept' button.</p>
+                <p class="cookie-item">Interacting with the website in any other way will automatically accept cookies.</p>
+                <p class="cookie-item">Cookie preferences will be saved for a year (365 days).</p>
+            </section>
+            <!-- Cookie actions -->
+            <section class="cookie-item action">
+                <a href="/policies#cookie-policy" id="cookie-learn-more" class="cookie-item" title="Learn more about cookies &amp; how I use them">Learn more</a>
+                <span class="cookie-item btn-group">
+                    <button id="cookie-btn-reject" class="cookie-item" title="Reject cookies for a year&NewLine;This will not allow cookies to be saved to your local device" type="button">Reject</button>
+                    <button id="cookie-btn-accept" class="cookie-item" title="Accept cookies for a year&NewLine;This will allow cookies to be saved to your local device" type="button">Accept</button>
+                </span>
+            </section>
+        </article>
+
+        <!-- PWA Install Prompt -->
+        <article id="pwa-install-banner" class="hidden">
+            <article class="blur-load" style="background-image: url('/assets/img/icon-close-min.png')">
+                <img id="pwa-close-prompt" src="/assets/img/icon-close.png" alt="close icon" loading="lazy" />
+            </article>
+
+            <section class="content">
+                <span class="title">ShiftManager</span>
+                <span class="description">@Translations.Map[language]["appDescription"]</span>
+            </section>
+
+            <section class="call-to-action">
+                <button id="pwa-install-button" type="button">@Translations.Map[language]["installPrompt"]</button>
+            </section>
+        </article>
+
+        <main>
+            @RenderBody()
+        </main>
+
+        <script>
+            if ('serviceWorker' in navigator) {
+                window.addEventListener("load", () => {
+                    navigator.serviceWorker.register('/pwa-sw.js', { scope: '.' })
+                        .then(res => console.log("service worker registered"))
+                        .catch(err => console.warn("service worker not registered", err));
+                });
+            }
+        </script>
+    </body>
+</html>
